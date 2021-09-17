@@ -16,7 +16,7 @@ Date: 09/13/2021         "") `"` DC  \  ((`"`
 
         <div class="container">
             <?php if (!isset($_POST['submit'])) { ?>
-                <h2>Please follow the prompts</h2>
+                <h2>Fill out the following fields:</h2>
                 <form action="<?= $_SERVER['PHP_SELF'] ?>" method="POST">
                     <div class="form-group">
                         Enter a color: <br />
@@ -72,7 +72,7 @@ Date: 09/13/2021         "") `"` DC  \  ((`"`
                                 mysqli_error($dbc), E_USER_WARNING);
                         }
 
-                        $select_query = "SELECT story FROM badlibs"; 
+                        $select_query = "SELECT story FROM badlibs ORDER BY id DESC"; 
 
                         $select_result = mysqli_query($dbc, $select_query) or 
                             trigger_error('Error querying database.', E_USER_ERROR);
